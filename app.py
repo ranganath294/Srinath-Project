@@ -44,7 +44,7 @@ def srinath():
         path = os.path.abspath("OD_down")
         files = glob.glob(os.path.join(path, '*.csv'))
 
-        # files = glob.glob(OD_down)
+        # files = glob.glob(OD_down) - comment
 
         # fuelprice = request.form["fuelprice"]
         # kmperliter = request.form["kmperliter"]
