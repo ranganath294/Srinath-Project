@@ -101,13 +101,22 @@ def srinath():
 
         despatch,sum_revenue,fixed_cost,t_cost,departuretime,headway,p_lost, travel_time_tot,stoparrival,Totcost_waiting, Totcost_inveh,Totpasslost,cuser,Totpasslost_penalty,totalkilometrerun,fuelcostday,maintenancecost_total_trips,vehdepreciation_total_trips,crewcost_total_trips,coperator,t_cost = cost_oned(passengerarrival,distance,frequency,timeperiod,link_traveltime,alightrate,fare, files, 'optmised frequency',fuelprice, kmperliter, busmaintenance, buscost, buslifecycle, crewperbus, creqincome, cr_trip, cr_day, seatcap, min_c_lvl, max_c_lvl,hrinperiod, bus_left, max_wait, c_waittime,c_invehtime,min_ppp,max_pplpt,kmperliter2,max_opc, penalty,min_rvpt,c_cantboard, min_dwell)
 
-        result_list = [
-        despatch, sum_revenue, fixed_cost, t_cost, departuretime, headway, p_lost,
-        travel_time_tot, stoparrival, Totcost_waiting, Totcost_inveh, Totpasslost,
-        cuser, Totpasslost_penalty, totalkilometrerun, fuelcostday,
-        maintenancecost_total_trips, vehdepreciation_total_trips,
-        crewcost_total_trips, coperator, t_cost
-]
+        result_list = {
+        'Sum Revenue': sum_revenue,
+        'Total Cost': t_cost,
+        'Total Cost of Waiting': Totcost_waiting,
+        'Total Cost in Vehicle': Totcost_inveh,
+        'Total Passenger Loss': Totpasslost,
+        'Current User': cuser,
+        'Total Passenger Loss Penalty': Totpasslost_penalty,
+        'Total Kilometer Run': totalkilometrerun,
+        'Fuel Cost per Day': fuelcostday,
+        'Total Maintenance Cost (All Trips)': maintenancecost_total_trips,
+        'Total Vehicle Depreciation (All Trips)': vehdepreciation_total_trips,
+        'Total Crew Cost (All Trips)': crewcost_total_trips,
+        'Current Operator': coperator,
+        'Total Cost': t_cost
+    }
 
 
         return render_template("srinath_result.html", result_list = result_list)

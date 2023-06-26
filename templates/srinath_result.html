@@ -8,8 +8,8 @@
 <body>
     <h1>Result List:</h1>
     <ul>
-        {% for item in result_list %}
-        <li>{{ item }}</li>
+        {% for key, value in result_list.items() %}
+        <li><strong>{{ key }}:</strong> {{ value }}</li>
         {% endfor %}
     </ul>
 </body>
