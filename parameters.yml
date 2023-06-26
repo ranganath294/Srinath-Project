@@ -1,0 +1,67 @@
+
+A: 'R1_T1' # Route 1 Terminal1
+B: "R1_T2"     # Route 1 Terminal 2
+
+#DOWN - Terminal1 to 2
+#UP = Terminal2 to 1
+frequencydefault: 3           # Default frequency of Bus- 1/maximum policy headway
+seatcap: 43                   # seating capacity
+min_c_lvl: 1.5                # minimum crowding level
+max_c_lvl: 2.0                # maximum crowding level
+
+max_wait: 21                  # Maximum time a passenger waits before leaving the bus stop
+bus_left: 2                   # Maximum number of buses a passenger leaves due to overcrowding before leaving the bus stop or choosing the other mode: allowed input 1,2, or 3
+min_dwell: 30                 # Minimum dwell time or default dwell time in seconds
+
+
+buscost: 7000000              # Cost of bus (including loan interest)
+buslifecycle: 800000          # Maximum vehicle-km run before discared.
+crewperbus: 2                 # No. of crew required per bus (including support staff)
+creqincome:  27500            # Average monthly wage of crew members (Driver, Operator, Technicians)
+cr_trip:  4                   # length of work shifts in terms of the number of target round trips per day
+cr_day: 25                    # average number of working days per month
+busmaintenance: 5             # Bus maintenance cost per km run
+fuelprice: 92                 # Fuel cost
+kmperliter: 5                 # Mileage running
+kmperliter2: 2                # Mileage engine idle
+
+c_cantboard: 10               # Cost incurred by user for not been able to board
+c_waittime: 1.21              # Waiting at bus stop cost incurred by user 73/60   inflated value of 48rs in 2023 73
+c_invehtime: .61              # Invehicle traveltime cost incurred by user 24/60
+penalty: 10                   # Operator part of penalty for loosing a bus passenger
+hrinperiod: 1                 # Length of a period, value means no of hours in a period
+ser_period: 16                # service hours
+
+#vehcicle and crew scheduling
+dead_todepot_t1: .5           # deadheading time to depot from terminal 1 in hours
+dead_todepot_t2: .8           # deadheading time to depot from terminal 2 in hours
+slack: 5                      # slack time for a trip
+lay_overtime: 10              # lay over time for buses at terminal before next dispatch
+layover_depot: 10             # layover at depot in minutes
+start_ser: 5
+end_ser: 22
+shift: 8                      # shift of buses in hours
+max_idle: 3                   # Maximum time a bus can be in the stand idle in the terminal or depot
+
+
+
+#Genetic algorithm parameters
+sol_per_pop: 500               # number of solution set of frequencies in one population for GA
+num_generations: 5            # number of generations for GA
+
+
+#CONSTRAINTS FULL DAY SERVICES
+
+max_oppp: 10000               # Maximum operation cost per passenger (OPPP)
+min_ppvk: 0                   # Minimum passenger per vehicle-kilometer (PPVK)
+min_ppt: 0                    # Minimum passenger per trip (PPT)
+max_ocpp: 15000               # Max operation cost per trip OCPP
+max_ppl: 30                   # Maximum percentage of passenger lost (PPL) in percentage
+min_crr: 0                    # Minimum cost recovery ratio (total earnings for full day operation/ operational cost)(CRR)
+max_fleet: 80                 # Maximum number of engaged buses in the route
+#CONSTRAINTS TRIP WISE
+
+min_ppp: 0                    # Minimum Passenger per trip
+max_pplpt: 100                # Maximum percentage of passenger lost per trip(PPLPT)
+min_rvpt: 0                   # Minimum revenue per trip(RVPT)
+max_opc: 15000                # Maximum operation cost
